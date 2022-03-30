@@ -1,0 +1,7 @@
+{
+  "name": "gqlsetupapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
