@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>launch-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="launchDetails$ | async as launchDetails">
+  <main>
+    <section style="padding-top: 20px">
+      <ion-card style="width: 400px; margin: auto">
+        <ion-avatar>
+          <img
+            height="256"
+            width="256"
+            [src]="launchDetails.links.mission_patch"
+            alt="Mission patch of {{ launchDetails.mission_name }}"
+          />
+        </ion-avatar>
+        <ion-card-header>
+          <ion-card-title>{{ launchDetails.mission_name }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{launchDetails.details}}
+          <section class="photo-grid">
+            <img
+              *ngFor="let pic of launchDetails.links.flickr_images"
+              [src]="pic"
+              alt="Picture of {{ launchDetails.mission_name }}"
+              height="300"
+              width="300"
+              loading="lazy"
+            />
+          </section>
+        </ion-card-content>
+      </ion-card>
+    </section>
+  </main>
+</ion-content>
